@@ -6,7 +6,7 @@ const BuildingItem = ({building, deleteBuilding}) => {
             <span>
                 {building.name} {building.address}
             </span>
-            <div onClick={() => deleteBuilding(building.id)}>Delete</div>
+            <button onClick={() => deleteBuilding(building.id)}>Delete</button>
         </li>
     );
 };
