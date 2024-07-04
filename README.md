@@ -58,12 +58,12 @@ npm start
 - __Example Return Structure(on success)__:
     ```json
     {
-        "id": <int: unique identifier of building>,
-        "name": <string: name of building>,
-        "street_address": <string: address of building>,
-        "city": <string | nil: city in which building resides>,
-        "postal_zip_code": <string | nil: name of building>,
-        "country": <string | nil: country in which building resides>,
+        "city": null,
+        "country": null,
+        "id": 5,
+        "name": "Example name",
+        "postal_zip_code": null,
+        "street_address": "123 Easy Street"
     }
     ```
 - __Example Return Structure(on request error)__:
