@@ -2,7 +2,7 @@ import React from "react";
 import useDeleteBuildingMutation from "../../queries/useDeleteBuilding";
 
 const BuildingItem = ({building}) => {
-  
+
   const deleteBuildingMutation = useDeleteBuildingMutation(building.id);
 
   const handleDeleteBuilding = () => {
@@ -12,7 +12,7 @@ const BuildingItem = ({building}) => {
   return (
     <li>
       <span>
-        {building.name} {building.address}
+        {building.name} {building.street_address}
       </span>
       <button onClick={handleDeleteBuilding}>Delete</button>
     </li>

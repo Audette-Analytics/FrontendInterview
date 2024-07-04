@@ -8,12 +8,12 @@ const AddBuilding = () => {
   const [address, setAddress] = useState("");
 
   const handleSubmit = (e) => {
-    
+
     e.preventDefault();
 
-    addBuildingMutation.mutate({ 
-      name: name, 
-      address: address 
+    addBuildingMutation.mutate({
+      name: name,
+      street_address: address
     });
 
   };
