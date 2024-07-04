@@ -4,16 +4,18 @@ import useAddBuildingMutation from "../../queries/useAddBuilding";
 const AddBuilding = () => {
   const addBuildingMutation = useAddBuildingMutation();
 
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
+  let [building, setBuilding] = useState({
+    name: "",
+    address: ""
+  })
 
   const handleSubmit = (e) => {
 
     e.preventDefault();
 
     addBuildingMutation.mutate({
-      name: name,
-      street_address: address
+      name: building.name,
+      street_address: building.address
     });
 
   };
@@ -22,14 +24,14 @@ const AddBuilding = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)}
+        value={building.address}
+        onChange={(e) => building.address = e.target.value}
         placeholder="Address"
       />
       <input
         type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={building.name}
+        onChange={(e) => building.name = e.target.name}
         placeholder="Name"
       />
       <button type="submit">Add</button>
