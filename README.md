@@ -4,7 +4,7 @@
 
 **Instructions:**
 
-1. **Fetch Initial Data:** Retrieve the initial list of buildings from https://765a09d9-37a0-4959-8bad-414267bb74f3.mock.pstmn.io/buildings. Note: Adding and deleting buildings through the API is not required.
+1. **Fetch Initial Data:** Update `API_ADDRESS` in `constants.jsx` to use a unique identifier of your choosing. This will ensure that the data you're working with is yours and not that of another candidate.
 2. **Loading State:** Implement a loading state to handle the initial data fetch.
 3. **Usability Improvements:** Address any usability issues you encounter while using the app.
 
