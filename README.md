@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Take-Home Assignment: Buildings List Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Time Estimate:** This task should take approximately 2-3 hours to complete.
 
-## Available Scripts
+## Objective
 
-In the project directory, you can run:
+You have been paired with a junior developer and tasked with creating a high-quality application that manipulates some buildings data via an in-house API. You both decided that the junior would produce a first draft and that you would then review and fix any problems. There are a couple obvious issues that the junior developer hasn't been able to fix on their own...
 
-### `npm start`
+1. **Add Building:** This feature doesn't work quite right. Find and fix the bug.
+1. **Loading State:** The underlying API is a bit slow. Implement a loading state so the user knows what's going on.
+  | With those known issues out of the way, explore the application and implement whatever other changes seem necessary. If you can, provide some helpful feedback to the junior developer about what else you've fixed and why.
+1. **Usability Improvements:** What other issues could use some attention (UX problems, bugs, code quality)? Improve or change whatever else seems necessary to you.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
+Update `API_ADDRESS` in `constants.jsx` to use a unique identifier of your choosing. This will ensure that the data you're working with is yours and not that of another candidate. Then, set up your environment with:
 
-### `npm test`
+```shell
+npm install
+```
+```shell
+npm start
+```
+---
+## API Endpoints Documentation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Get all buildings
+- __Method__: `GET`
+- __Endpoint__: `/<job-candidate-name>/buildings`
+- __Example Return Structure(on success)__:
+    ```json
+    [
+        {
+            "city": null,
+            "country": null,
+            "id": 2,
+            "name": "Nakatomi Plaza",
+            "postal_zip_code": null,
+            "street_address": "2121 Avenue of the Stars"
+        },
+        {
+            "city": null,
+            "country": null,
+            "id": 3,
+            "name": "Nakatomi Plaza",
+            "postal_zip_code": null,
+            "street_address": "2121 Avenue of the Stars"
+        }
+    ]
+    ```
 
-### `npm run build`
+#### Add a building
+- __Method__: `POST`
+- __Endpoint__: `/<job-candidate-name>/buildings`
+- __Request Body Parameters__: 
+    - `street_address` (required) String
+    - `name` (required) String
+    - `country` (optional) String
+    - `postal_zip_code` (optional) String
+    - `street_address` (optional) String
+- __Example Return Structure(on success)__:
+    ```json
+    {
+        "city": null,
+        "country": null,
+        "id": 5,
+        "name": "Example name",
+        "postal_zip_code": null,
+        "street_address": "123 Easy Street"
+    }
+    ```
+- __Example Return Structure(on request error)__:
+    ```json
+    {
+        "error": "Invalid request body"
+    }
+    ```
+- __Example Return Structure(on field error)__:
+    ```json
+    {
+        "errors": [
+            {
+                "field": "street_address",
+                "message": "Expected street_address to be a non-empty string, got "
+            }
+        ]
+    }    
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Delete a building
+- __Method__: `DELETE`
+- __Endpoint__: `/<job-candidate-name>/buildings/<building-id>`
+- __Example Return Structure(on success)__:
+    ```json
+    {
+        "message": "Building deleted successfully!"
+    }
+    ```
+- __Example Return Structure(on request error)__:
+    ```json
+    {
+        "error": "Building <building-id> not found."
+    }
+    ```
