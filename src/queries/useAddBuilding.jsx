@@ -1,10 +1,8 @@
-import { useMutation, useQueryClient } from "react-query"
+import { useMutation } from "react-query"
 import { API_ADDRESS } from "./constants"
-import { queryKey as buildingsQueryKey } from "./useGetBuildings"
 
 const useAddBuildingMutation = () => {
 
-  const queryClient = useQueryClient()
   const url = `${API_ADDRESS}/buildings`
 
   return useMutation({
