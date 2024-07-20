@@ -22,7 +22,7 @@ const useAddBuildingMutation = () => {
         res.json()
       ),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: buildingsQueryKey })
+      // code here runs after a succesful mutation
     },
   })
 }

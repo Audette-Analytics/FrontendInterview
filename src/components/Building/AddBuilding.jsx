@@ -6,18 +6,16 @@ const AddBuilding = () => {
 
   let [building, setBuilding] = useState({
     name: "",
-    address: ""
-  })
+    address: "",
+  });
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
 
     addBuildingMutation.mutate({
       name: building.name,
-      street_address: building.address
+      street_address: building.address,
     });
-
   };
 
   return (

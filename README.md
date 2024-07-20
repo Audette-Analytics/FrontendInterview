@@ -9,7 +9,7 @@ You have been paired with a junior developer and tasked with creating a high-qua
 1. **Add Building:** This feature doesn't work quite right. Find and fix the bugs.
 2. **Loading State:** The underlying API is a bit slow. Implement a loading state so the user knows what's going on.
 > With those known issues out of the way, explore the application and implement whatever other changes seem necessary. If you can, provide some helpful feedback to the junior developer about what else you've fixed and why.
-3. **Usability Improvements:** What other issues could use some attention (UX problems, bugs, code quality)? Improve or change whatever else seems necessary to you.
+3. **Usability Improvements:** What other issues could use some attention (UX problems, bugs, code quality)? Improve or change whatever else seems necessary or valuable to you.
 
 
 ## Setup
