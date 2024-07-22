@@ -19,9 +19,7 @@ const useAddBuildingMutation = () => {
       ).then((res) => 
         res.json()
       ),
-    onSuccess: () => {
-      // code here runs after a succesful mutation
-    },
+    onSuccess: () => {},
   })
 }
 
